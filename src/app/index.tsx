@@ -12,9 +12,12 @@ export default function Index() {
         style={styles.bg}
         resizeMode="cover"
       >
-        {/*Controla opacidade*/}
+        {/* Controla opacidade */}
         <View style={styles.overlay} />
-        <Initial />
+
+        <ScrollView contentContainerStyle={styles.scrollContent}>
+          <Initial />
+        </ScrollView>
       </ImageBackground>
     </View>
   );
@@ -29,10 +32,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100%'
+    width: '100%',
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  scrollContent: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexGrow: 1,
   },
 });
