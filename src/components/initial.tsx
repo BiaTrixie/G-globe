@@ -1,3 +1,4 @@
+import { Link } from 'expo-router';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 
 export function Initial() {
@@ -7,25 +8,30 @@ export function Initial() {
                 Você é um professor ou um aluno?
             </Text>
             <View style={styles.box}>
-                <Pressable>
-                    <Text style={styles.button}>
-                        PROFESSOR
-                    </Text>
-                </Pressable>
+                <Link href="/home">
+                    <Pressable>
+                        <Text style={styles.button}>
+                            PROFESSOR
+                        </Text>
+                    </Pressable>
+                </Link>
+
             </View>
             <View style={styles.box}>
-                <Pressable>
-                    <Text style={styles.button}>
-                        ALUNO
-                    </Text>
-                </Pressable>
+                <Link href="/home">
+                    <Pressable>
+                        <Text style={styles.button}>
+                            ALUNO
+                        </Text>
+                    </Pressable>
+                </Link>
             </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    box:{
+    box: {
         margin: 10,
     },
     button: {

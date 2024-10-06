@@ -1,6 +1,7 @@
 import Constants from "expo-constants";
 import { Text, View, ActivityIndicator, ScrollView, StyleSheet, ImageBackground } from "react-native";
 import { Initial } from "../components/initial";
+import { Link } from "expo-router";
 
 const statusBarHeight = Constants.statusBarHeight;
 
@@ -8,7 +9,7 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../../assets/images/folha-bg-desktop.png')}
+        source={require('../../assets/images/bg-fl.png')}
         style={styles.bg}
         resizeMode="cover"
       >
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.6 )',
   },
   scrollContent: {
     justifyContent: 'center',
