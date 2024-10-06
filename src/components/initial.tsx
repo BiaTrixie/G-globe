@@ -8,7 +8,7 @@ export function Initial() {
                 Você é um professor ou um aluno?
             </Text>
             <View style={styles.box}>
-                <Link href="/home">
+                <Link href="/home" asChild>
                     <Pressable>
                         <Text style={styles.button}>
                             PROFESSOR
@@ -18,7 +18,7 @@ export function Initial() {
 
             </View>
             <View style={styles.box}>
-                <Link href="/home">
+                <Link href="/home" asChild>
                     <Pressable>
                         <Text style={styles.button}>
                             ALUNO
