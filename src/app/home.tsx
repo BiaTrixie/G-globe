@@ -11,27 +11,39 @@ export default function ProtocolsScreen() {
         <View style={styles.container}>
             <Text style={styles.headerTitle}>PROTOCOLOS</Text>
 
-            <TextInput
-                style={styles.searchInput}
-                placeholder="Pesquise o protocolo"
-            />
-
-            {/* Seção de tabs "Cadastrar" e "Educação" lado a lado */}
             <View style={styles.tabContainer}>
-                <Text style={styles.activeTab}>Cadastrar</Text>
-                <Text style={styles.inactiveTab}>Educação</Text>
+                <Text style={styles.activeTab}>Educação</Text>
+                <Text style={styles.inactiveTab}>| Cadastrar</Text>
             </View>
 
             <ScrollView contentContainerStyle={styles.scrollContent}>
-                <View style={styles.itemContainer}>
-                    <Text style={styles.itemTitle}>Protocolo de Sustentabilidade</Text>
-                </View>
-                <View style={styles.itemContainer}>
-                    <Text style={styles.itemTitle}>Protocolo de Gestão Sustentável</Text>
-                </View>
-                <View style={styles.itemContainer}>
-                    <Text style={styles.itemTitle}>Protocolo de Práticas de Reciclagem</Text>
-                </View>
+                {[
+                    {
+                        title: 'Atmosfera',
+                        description: 'Certificado | Carga Horária: 50H',
+                    },
+                    {
+                        title: 'Biosfera',
+                        description: 'Certificado | Carga Horária: 60H',
+                    },
+                    {
+                        title: 'Hidrosfera',
+                        description: 'Certificado | Carga Horária: 50H',
+                    },
+                    {
+                        title: 'Pedosfera',
+                        description: 'Certificado | Carga Horária: 50H',
+                    },
+                    {
+                        title: 'A Terra como um Sistema',
+                        description: 'Certificado | Carga Horária: 80H',
+                    },
+                ].map((item, index) => (
+                    <View key={index} style={styles.itemContainer}>
+                        <Text style={styles.itemTitle}>{item.title}</Text>
+                        <Text style={styles.itemDescription}>{item.description}</Text>
+                    </View>
+                ))}
             </ScrollView>
 
             <View style={styles.bottomBar}>
@@ -45,11 +57,12 @@ export default function ProtocolsScreen() {
                         <Text style={styles.iconLabel}>Gamificação</Text>
                     </Pressable>
                 </Link>
-
-                <Pressable style={styles.iconContainer}>
-                    <Ionicons name="person-outline" size={24} color="#AAAAAA" />
-                    <Text style={styles.iconLabel}>Perfil</Text>
-                </Pressable>
+                <Link href="/profile" asChild>
+                    <Pressable style={styles.iconContainer}>
+                        <Ionicons name="person-outline" size={24} color="#AAAAAA" />
+                        <Text style={styles.iconLabel}>Perfil</Text>
+                    </Pressable>
+                </Link>
             </View>
         </View>
     );
@@ -61,7 +74,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         paddingHorizontal: 20,
         marginTop: statusBarHeight + 6,
-
     },
     headerTitle: {
         fontSize: 24,
@@ -76,14 +88,16 @@ const styles = StyleSheet.create({
     },
     tabContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         marginBottom: 20,
+        padding: 4,
     },
     activeTab: {
         color: '#65B307',
         fontWeight: 'bold',
         fontSize: 16,
+        margin: 4,
     },
     inactiveTab: {
         color: '#AAAAAA',
@@ -102,6 +116,10 @@ const styles = StyleSheet.create({
     itemTitle: {
         fontSize: 18,
         fontWeight: 'bold',
+    },
+    itemDescription: {
+        fontSize: 14,
+        color: '#666',
     },
 
     bottomBar: {
