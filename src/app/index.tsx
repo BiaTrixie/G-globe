@@ -1,22 +1,38 @@
 import Constants from "expo-constants";
-import { Text, View, ActivityIndicator, ScrollView, StyleSheet} from "react-native";
+import { Text, View, ActivityIndicator, ScrollView, StyleSheet, ImageBackground } from "react-native";
 import { Initial } from "../components/initial";
-
 
 const statusBarHeight = Constants.statusBarHeight;
 
 export default function Index() {
   return (
-    <ScrollView style={styles.bg}>
-      <View style={{ marginTop: statusBarHeight + 6 }}>
-        <Initial/>
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <ImageBackground
+        source={require('../../assets/images/folha-bg-desktop.png')}
+        style={styles.bg}
+        resizeMode="cover"
+      >
+        {/*Controla opacidade*/}
+        <View style={styles.overlay} />
+        <Initial />
+      </ImageBackground>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  bg:{
-      backgroundColor: 'black',
+  container: {
+    flex: 1,
+    backgroundColor: 'black',
   },
-})
+  bg: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%'
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+});
