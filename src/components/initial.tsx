@@ -1,27 +1,25 @@
 import { Link } from 'expo-router';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Image, ImageBackground } from 'react-native';
 
 export function Initial() {
     return (
         <View style={styles.container}>
+            <Image 
+                source={require('../../assets/images/ecologia.png')} 
+                style={styles.logo}
+            />
             <Text style={styles.titulo}>
-                Você é um professor ou um aluno?
+                BEM VINDO A MISSÃO TERRA
             </Text>
-            <View style={styles.box}>
-                <Link href="/home" asChild>
-                    <Pressable>
-                        <Text style={styles.button}>
-                            PROFESSOR
-                        </Text>
-                    </Pressable>
-                </Link>
+            <Text style={styles.descricao}>
+                Você está preparado para ajudar a identificar problemas na terra e fazer a diferença?
+            </Text>
 
-            </View>
             <View style={styles.box}>
                 <Link href="/home" asChild>
-                    <Pressable>
-                        <Text style={styles.button}>
-                            ALUNO
+                    <Pressable style={styles.button}>
+                        <Text style={styles.buttonText}>
+                            VAMOS COMEÇAR!
                         </Text>
                     </Pressable>
                 </Link>
@@ -31,28 +29,46 @@ export function Initial() {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    logo: {
+        width: 150,  
+        height: 150, 
+        marginBottom: 20, 
+    },
+    titulo: {
+        paddingBottom: 20,
+        color: 'white',
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    descricao: {
+        paddingBottom: 40,
+        color: 'white',
+        fontSize: 16,
+        textAlign: 'center',
+        marginHorizontal: 20,
+    },
     box: {
-        margin: 10,
+        position: 'absolute', 
+        bottom: 50,
+        width: '100%',
+        alignItems: 'center',
     },
     button: {
-        color: 'white',
         backgroundColor: '#65B307',
         padding: 12,
         borderRadius: 20,
         width: 300,
-        textAlign: 'center',
-    },
-    titulo: {
-        paddingBottom: 30,
-        color: 'white',
-        fontSize: 22,
-    },
-    textG: {
-        color: 'white'
-    },
-    container: {
-        display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-    }
-})
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+});

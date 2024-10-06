@@ -13,7 +13,6 @@ export default function Index() {
         style={styles.bg}
         resizeMode="cover"
       >
-        {/* Controla opacidade */}
         <View style={styles.overlay} />
 
         <ScrollView contentContainerStyle={styles.scrollContent}>
